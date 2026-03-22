@@ -1,0 +1,18 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User profiles - users can only read/write their own data
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      // Allow updates to most fields, critical ones should be validated via functions ideally
+      // But for this direct logic:
+      allow update: if request.auth != null && request.auth.uid == userId; 
+      allow delete: if false;
+    }
+    
+    // Other collections can be added here
+  }
+}
