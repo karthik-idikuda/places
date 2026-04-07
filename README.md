@@ -1,134 +1,41 @@
 # LeadFinder Pro
 
-A full-stack lead generation and management platform built with Next.js and Firebase. LeadFinder Pro enables businesses to discover, track, and manage sales leads with integrated Razorpay payment processing for credits-based access to premium lead data.
+Full-stack lead generation and management platform with prospect discovery, scoring, CRM integration, and payment processing.
 
----
+## Features
 
-## Table of Contents
+- Prospect discovery from multiple data sources
+- Lead scoring based on engagement and fit criteria
+- CRM pipeline with stage management
+- Razorpay payment integration for premium features
+- Export leads to CSV and integrations
+- Team collaboration with shared lead pools
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [License](#license)
+## Tech Stack
 
----
+TypeScript, Next.js, Firebase Firestore, Razorpay, Tailwind CSS
 
-## Overview
+## Getting Started
 
-LeadFinder Pro provides:
+### Prerequisites
 
-- **Lead discovery engine** for finding potential business contacts
-- **Credit-based access system** with Razorpay payment integration
-- **Firebase backend** with Firestore for real-time data synchronization
-- **Authentication** via Firebase Auth
-- **Server-side rendering** with Next.js for SEO optimization
-- **Responsive UI** with Tailwind CSS
+- Node.js 18+
+- npm
 
----
-
-## Architecture
-
-```
-+---------------------------------------+
-|         Next.js Frontend              |
-|  SSR Pages | API Routes | Auth        |
-+---------------------------------------+
-         |              |
-         v              v
-+----------------+ +-------------------+
-| Firebase Auth  | | Firestore DB      |
-| User sessions  | | Leads, credits,   |
-|                | | user profiles     |
-+----------------+ +-------------------+
-                        |
-                        v
-+---------------------------------------+
-|         Razorpay Integration          |
-|  Credit purchase | Payment webhooks   |
-+---------------------------------------+
-```
-
----
-
-## Technology Stack
-
-| Component        | Technology                    |
-|------------------|-------------------------------|
-| Framework        | Next.js                       |
-| Language         | TypeScript                    |
-| Styling          | Tailwind CSS                  |
-| Database         | Firebase Firestore            |
-| Authentication   | Firebase Auth                 |
-| Payments         | Razorpay                      |
-| Hosting          | Firebase Hosting              |
-
----
-
-## Project Structure
-
-```
-places/
-|
-|-- lead-finder/
-|   |-- package.json             # Dependencies
-|   |-- next.config.js           # Next.js configuration
-|   |-- tailwind.config.js       # Tailwind CSS configuration
-|   |-- tsconfig.json            # TypeScript configuration
-|   |-- firebase.json            # Firebase hosting config
-|   |-- firestore.rules          # Firestore security rules
-|   |-- firestore.indexes.json   # Firestore indexes
-|   |-- .firebaserc              # Firebase project config
-|   |-- add-credits.js           # Credit addition utility
-|   |
-|   |-- src/                     # Source code
-|   |-- public/                  # Static assets
-|   +-- scripts/                 # Utility scripts
-|
-+-- leadfnrdpro/                 # Pro version module
-```
-
----
-
-## Installation
+### Installation
 
 ```bash
-cd lead-finder
-
+git clone https://github.com/karthik-idikuda/places.git
+cd places
 npm install
-
-# Configure environment
-cp .env.local.example .env.local
-# Add Firebase and Razorpay credentials
 ```
 
----
-
-## Usage
+### Usage
 
 ```bash
-# Development server
 npm run dev
-
-# Production build
-npm run build
-npm start
 ```
-
----
-
-## Deployment
-
-```bash
-# Deploy to Firebase Hosting
-firebase deploy
-```
-
----
 
 ## License
 
-This project is released for educational and research purposes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
